@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Repositories\All\Collection\CollectionInterface;
+use App\Repositories\All\Collection\CollectionRepository;
 use App\Repositories\All\PermissionCategories\PermissionCategoriesInterface;
 use App\Repositories\All\PermissionCategories\PermissionCategoriesRepository;
 use App\Repositories\All\Permissions\PermissionsInterface;
@@ -21,10 +23,11 @@ class AppServiceProvider extends ServiceProvider
     public function register(): void
     {
         $this->app->bind(UserRepositoryInterface::class, UserRepository::class);
-
         $this->app->bind(RoleInterface::class, RoleRepository::class);
         $this->app->bind(PermissionsInterface::class, PermissionsRepository::class);
         $this->app->bind(PermissionCategoriesInterface::class, PermissionCategoriesRepository::class);
+        $this->app->bind(CollectionInterface::class, CollectionRepository::class);
+
     }
 
     /**

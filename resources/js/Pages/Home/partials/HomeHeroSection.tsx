@@ -72,7 +72,7 @@ const HomeHeroSection = ({ heroData }: any) => {
     return (
         <div
             id="heroSection"
-            className="lg:mt-[120px] mt-[80px] bg-gray-500 max-w-7xl mx-auto h-full lg:rounded-3xl rounded-none bg-no-repeat bg-cover bg-center sm:bg-right"
+            className="lg:mt-[100px] mt-[80px] bg-gray-500  mx-auto h-full lg:rounded-3xl rounded-none bg-no-repeat bg-cover bg-center sm:bg-right"
             style={{
                 backgroundColor: "#F8F8F8",
                 backgroundImage: `url(${backgroundImage})`,
@@ -86,6 +86,7 @@ const HomeHeroSection = ({ heroData }: any) => {
                 autoPlay={true}
                 rewind={true}
                 swipeable={true}
+                //infinite={true}
                 draggable={true}
                 ssr={true}
                 autoPlaySpeed={10000}
@@ -93,7 +94,7 @@ const HomeHeroSection = ({ heroData }: any) => {
                 keyBoardControl={true}
                 rewindWithAnimation={true}
                 customDot={<CustomDot />}
-                containerClass="carousel-container bg-transparent lg:rounded-3xl rounded-none h-[400px]"
+                containerClass="carousel-container bg-transparent lg:rounded-3xl rounded-none h-[600px]"
                 dotListClass="w-full"
                 itemClass="w-full"
             >
@@ -131,7 +132,7 @@ const HomeHeroSection = ({ heroData }: any) => {
                                         <p className="py-1 font-[700] sm:text-3xl lg:text-black text-white text-xl  ">
                                             {slider?.sub_title}
                                         </p>
-                                        <h1 className="font-display sm:text-6xl lg:text-black text-primary text-4xl font-bold leading-[1.5] xl:leading-[1.2] tracking-tight ">
+                                        <h1 className="font-display sm:text-7xl font-[400] lg:text-black text-primary font-lobster text-4xl  leading-[1.5] xl:leading-[1.2] tracking-tight ">
                                             {slider?.title}
                                         </h1>
                                         <div className="mt-2 text-lg font-medium text-white lg:text-gray-700 sm:text-xl">

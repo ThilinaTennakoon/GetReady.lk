@@ -1,8 +1,6 @@
-"use client"
-
 import * as React from "react"
 import { LucideIcon } from "lucide-react"
-import { SidebarGroup, SidebarGroupContent, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "./ui/sidebar"
+import { SidebarGroup, SidebarGroupContent, SidebarMenu, SidebarMenuButton, SidebarMenuItem } from "../ui/sidebar"
 
 export function NavSecondary({
   items,
