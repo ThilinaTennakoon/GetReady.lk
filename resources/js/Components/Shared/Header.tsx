@@ -22,7 +22,7 @@ export default function Header() {
                 <div className="flex items-center justify-between h-16 px-4 mx-auto max-w-[95%] sm:max-w-[85%] sm:px-2 lg:px-4">
                     {/* Logo */}
                     <div className="text-xl font-bold text-yellow-500">
-                        <a href="#home">GetReady.LK</a>
+                        <a href={route('home')}>GetReady.LK</a>
                     </div>
 
                     {/* Desktop Nav */}

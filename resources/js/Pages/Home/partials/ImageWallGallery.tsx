@@ -43,7 +43,7 @@ const ImageWallGallery: React.FC<Props> = ({ images }) => {
 
             <div className="relative flex justify-center mb-10">
                 <Link
-                    href={route("home")}
+                    href={route("gallery")}
                     className="px-6 py-2 text-sm font-medium text-yellow-500 transition-all duration-300 border border-yellow-500 rounded-sm shadow-lg sm:text-base hover:bg-yellow-500 hover:text-white "
                 >
                     View Gallery

@@ -1,6 +1,7 @@
 import { usePage } from "@inertiajs/react";
 import { PageProps } from "@/types";
 import Header from "@/Components/Shared/Header";
+import Footer from "@/Components/Shared/Footer";
 
 export default function AppLayout(
     {
@@ -30,6 +31,7 @@ export default function AppLayout(
 
             {/* Footer */}
             {/* {isFooter && <Footer />} */}
+            <Footer />
         </div>
 
     );
