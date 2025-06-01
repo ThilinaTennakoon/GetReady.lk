@@ -18,6 +18,14 @@ class HomeController extends Controller
         ]);
     }
 
+
+      public function gallery()
+    {
+         return Inertia::render('Gallery/Index', [
+
+        ]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */

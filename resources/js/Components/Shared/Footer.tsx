@@ -6,10 +6,10 @@ export default function Footer() {
         <footer
             className="text-center bg-white bg-opacity-70 lg:text-left">
             <div
-                className="flex items-center justify-center p-6 border-b-2 border-neutral-200 dark:border-neutral-500 lg:justify-between">
-                <div className="hidden mr-12 lg:block">
+                className="flex items-center justify-center p-6 border-b-2 border-neutral-200 dark:border-neutral-500 lg:justify-end">
+                {/* <div className="hidden mr-12 lg:block">
                     <span>Get connected with us :</span>
-                </div>
+                </div> */}
                 {/* <!-- Social network icons container --> */}
                 <div className="flex justify-center">
                     <a className="mr-6 text-neutral-600 dark:text-neutral-200">

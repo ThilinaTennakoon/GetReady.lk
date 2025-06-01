@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/gallery', [HomeController::class, 'gallery'])->name('gallery');
 
 
 Route::middleware('auth')->group(function () {

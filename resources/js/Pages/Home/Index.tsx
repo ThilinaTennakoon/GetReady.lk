@@ -3,7 +3,7 @@ import { Head, usePage } from "@inertiajs/react";
 import HomeHeroSection from "./partials/HomeHeroSection";
 import MostRecommendedSection from "./partials/MostRecommendedSection";
 import ImageWallGallery from "./partials/ImageWallGallery";
-import Footer from "@/Components/Shared/Footer";
+
 
 
 
@@ -77,7 +77,7 @@ export default function Home(
                     {/* <MiddleSection /> */}
                     {/* <HomeHero /> */}
                     {/* <MiddleSection /> */}
-                    {<Footer />}
+                    {/* {<Footer />} */}
                 </div>
             </AppLayout>
 
