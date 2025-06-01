@@ -3,6 +3,7 @@ import { Head, usePage } from "@inertiajs/react";
 import HomeHeroSection from "./partials/HomeHeroSection";
 import MostRecommendedSection from "./partials/MostRecommendedSection";
 import ImageWallGallery from "./partials/ImageWallGallery";
+import Footer from "@/Components/Shared/Footer";
 
 
 
@@ -22,7 +23,7 @@ export default function Home(
         {
             id: 1,
             sub_title: "Elegant Blazer Rentals",
-            title: "Find Your Perfect Fit",
+            title: "Find Perfect Fit",
             intro: "Discover our premium collection of blazers, perfect for weddings, business events, and formal occasions. Our stylish, well-fitted blazers ensure you look sharp and feel confident. With a range of modern and classic styles available, finding the right fit for any event has never been easier or more affordable.",
             image_url: "assets/images/hero1.png",
             mobile_image_url: "assets/images/hero1.png",
@@ -49,32 +50,25 @@ export default function Home(
     ];
 
     const sampleImages = [
-        "https://i.pinimg.com/236x/71/31/ca/7131caf315dfaf6e8bfbb7f08082b11b.jpg",
-        "https://i.pinimg.com/236x/0e/1f/96/0e1f96cd500bb63b770069397117d721.jpg",
-        "https://i.pinimg.com/236x/cb/6d/3e/cb6d3eab345e6d6fa2493734fc345979.jpg",
-        "https://i.pinimg.com/236x/b2/4d/a7/b24da74008c9471141ff99044e4e3861.jpg",
-        "https://i.pinimg.com/236x/53/1b/65/531b652b87f713592ccce2bc673b3f08.jpg",
-        "https://i.pinimg.com/236x/53/1b/65/531b652b87f713592ccce2bc673b3f08.jpg",
-        "https://i.pinimg.com/474x/d5/86/f5/d586f5a7d40d02b7fcea12c0ac8f5f81.jpg",
-        "https://i.pinimg.com/474x/4c/19/1f/4c191f6c6b1424a9ee4538708b683cbb.jpg",
-        "https://i.pinimg.com/474x/e2/d7/aa/e2d7aa7a6134df45e401e21466877952.jpg",
-        "https://i.pinimg.com/236x/71/31/ca/7131caf315dfaf6e8bfbb7f08082b11b.jpg",
-        "https://i.pinimg.com/236x/0e/1f/96/0e1f96cd500bb63b770069397117d721.jpg",
-        "https://i.pinimg.com/236x/cb/6d/3e/cb6d3eab345e6d6fa2493734fc345979.jpg",
-        "https://i.pinimg.com/236x/b2/4d/a7/b24da74008c9471141ff99044e4e3861.jpg",
-        "https://i.pinimg.com/236x/53/1b/65/531b652b87f713592ccce2bc673b3f08.jpg",
-        "https://i.pinimg.com/236x/53/1b/65/531b652b87f713592ccce2bc673b3f08.jpg",
-        "https://i.pinimg.com/474x/d5/86/f5/d586f5a7d40d02b7fcea12c0ac8f5f81.jpg",
-        "https://i.pinimg.com/474x/4c/19/1f/4c191f6c6b1424a9ee4538708b683cbb.jpg",
-        "https://i.pinimg.com/474x/e2/d7/aa/e2d7aa7a6134df45e401e21466877952.jpg",
+        "https://i.pinimg.com/474x/32/85/d5/3285d53ea856a59733f543d0a478399e.jpg",
+        "https://i.pinimg.com/474x/a6/fb/a0/a6fba0cd13364f9eba4d5c1e26710f19.jpg",
+        "https://i.pinimg.com/236x/fb/a5/f5/fba5f544725e5ffcc5bb32bc44abbe6c.jpg",
+        "https://i.pinimg.com/474x/33/88/59/3388591b0530882f48b46a140f623d16.jpg",
+        "https://i.pinimg.com/474x/d3/d6/24/d3d6242d9fb8c62043f9b7a7f11912c2.jpg",
+        "https://i.pinimg.com/474x/cd/db/a6/cddba6197270e87824e489b20e38e0fc.jpg",
+        "https://i.pinimg.com/474x/91/51/57/915157bff376e1a1f85d13a7937143b1.jpg",
+        "https://i.pinimg.com/474x/f7/94/9b/f7949b7fcf3198f18582d459749be9e4.jpg",
+        "https://i.pinimg.com/474x/ce/96/f9/ce96f9a12ef98eeab391f3e5401a9800.jpg",
+
+
     ];
 
     return (
         <>
             <AppLayout>
                 <Head title="Home" />
-                <div className="min-h-screen px-4 space-y-5 lg:px-28">
-                    <HomeHeroSection heroData={heroData} />
+                <div className="min-h-screen px-4 mt-24 space-y-10 md:space-y-16 lg:space-y-20 lg:px-28">
+                    <HomeHeroSection  />
                     <MostRecommendedSection />
                     <ImageWallGallery images={sampleImages}  />
                     {/* Uncomment the following lines to include the MiddleSection and HomeHero components */}
@@ -83,6 +77,7 @@ export default function Home(
                     {/* <MiddleSection /> */}
                     {/* <HomeHero /> */}
                     {/* <MiddleSection /> */}
+                    {<Footer />}
                 </div>
             </AppLayout>
 

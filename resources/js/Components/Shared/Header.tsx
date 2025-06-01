@@ -18,10 +18,10 @@ export default function Header() {
     return (
         <>
             {/* Header */}
-            <header className="fixed top-0 left-0 z-50 w-full shadow-md bg-black/90 backdrop-blur-sm animate-fade-in">
-                <div className="flex items-center justify-between h-16 px-4 mx-auto max-w-7xl sm:px-2 lg:px-4">
+            <header className="fixed top-0 left-0 z-50 w-full bg-white shadow-md backdrop-blur-sm animate-fade-in">
+                <div className="flex items-center justify-between h-16 px-4 mx-auto max-w-[95%] sm:max-w-[85%] sm:px-2 lg:px-4">
                     {/* Logo */}
-                    <div className="text-xl font-bold text-white">
+                    <div className="text-xl font-bold text-yellow-500">
                         <a href="#home">GetReady.LK</a>
                     </div>
 
@@ -31,7 +31,7 @@ export default function Header() {
                             <a
                                 key={route.name}
                                 href={route.href}
-                                className="font-medium text-gray-300 transition hover:text-white"
+                                className="font-medium text-gray-700 transition hover:text-yellow-500"
                             >
                                 {route.name}
                             </a>
@@ -44,7 +44,7 @@ export default function Header() {
                             <a
                                 key={route.name}
                                 href={route.href}
-                                className="px-4 py-1 text-sm font-medium text-white transition border border-white rounded hover:bg-white hover:text-black"
+                                className="px-4 py-1 text-sm font-medium text-yellow-500 transition border border-yellow-500 rounded hover:bg-yellow-500 hover:text-white"
                             >
                                 {route.name}
                             </a>
@@ -54,7 +54,7 @@ export default function Header() {
                     {/* Mobile Menu Button */}
                     <button
                         onClick={() => setSidebarOpen(true)}
-                        className="text-white md:hidden"
+                        className="text-yellow-600 md:hidden"
                         aria-label="Open menu"
                     >
                         <svg
@@ -73,19 +73,19 @@ export default function Header() {
 
             {/* Sidebar Overlay */}
             <div
-                className={`fixed inset-0 z-40 bg-black/50 transition-opacity duration-300 ${sidebarOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
+                className={`fixed inset-0 z-40 bg-black/30 transition-opacity duration-300 ${sidebarOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
                 onClick={() => setSidebarOpen(false)}
             />
 
             {/* Sidebar */}
             <aside
-                className={`fixed top-0 left-0 h-full w-64 bg-zinc-900 shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}
+                className={`fixed top-0 left-0 h-full w-64 bg-white shadow-lg z-50 transform transition-transform duration-300 ease-in-out ${sidebarOpen ? 'translate-x-0' : '-translate-x-full'}`}
             >
-                <div className="flex items-center justify-between px-4 py-4 border-b border-zinc-700">
-                    <h2 className="text-lg font-semibold text-white">Menu</h2>
+                <div className="flex items-center justify-between px-4 py-4 border-b border-gray-200">
+                    <h2 className="text-lg font-semibold text-yellow-500">Menu</h2>
                     <button
                         onClick={() => setSidebarOpen(false)}
-                        className="text-gray-400 hover:text-white"
+                        className="text-gray-600 hover:text-yellow-500"
                         aria-label="Close menu"
                     >
                         <svg
@@ -107,20 +107,20 @@ export default function Header() {
                             key={route.name}
                             href={route.href}
                             onClick={() => setSidebarOpen(false)}
-                            className="font-medium text-gray-300 transition hover:text-white"
+                            className="font-medium text-gray-700 transition hover:text-yellow-500"
                         >
                             {route.name}
                         </a>
                     ))}
 
-                    <hr className="my-2 border-zinc-700" />
+                    <hr className="my-2 border-gray-200" />
 
                     {loginRoutes.map((route) => (
                         <a
                             key={route.name}
                             href={route.href}
                             onClick={() => setSidebarOpen(false)}
-                            className="font-medium text-gray-300 transition hover:text-white"
+                            className="px-4 py-2 font-medium text-center text-yellow-500 transition border border-yellow-500 rounded hover:bg-yellow-500 hover:text-white"
                         >
                             {route.name}
                         </a>

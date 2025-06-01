@@ -16,6 +16,8 @@ export default {
     		fontFamily: {
     			 sans: ['Figtree', ...defaultTheme.fontFamily.sans],
                 lobster: ['Lobster', 'cursive'], // ✅ added Lobster font
+                caveat: ['Caveat', 'cursive'], // ✅ added Caveat font
+                Bebas: ['Bebas Neue', 'cursive'], // ✅ added Bebas Neue font
     		},
     		colors: {
     			sideBlack: '#0e0e23',

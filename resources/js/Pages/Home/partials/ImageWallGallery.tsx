@@ -8,10 +8,22 @@ type Props = {
 const ImageWallGallery: React.FC<Props> = ({ images }) => {
 
     return (
-        <div className="relative px-4 py-6 sm:px-6 lg:px-8">
-            <h2 className="mb-6 text-xl font-semibold text-center sm:text-2xl">
-                Captured Moments
-            </h2>
+        <div className="relative space-y-5">
+           <div className="relative mb-12 text-center">
+                {/* Background Watermark Title */}
+                 <h2 className="absolute inset-x-0 top-1/2 -translate-y-1/2 z-0 text-center
+               hidden sm:block text-[12vw] md:text-[10vw] lg:text-[11vw] font-Bebas tracking-wide uppercase
+               text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600
+               opacity-10 select-none pointer-events-none leading-none px-4 whitespace-nowrap overflow-hidden">
+                    Captured Memories
+                </h2>
+
+
+                {/* Foreground Title (actual visible one for section) */}
+                <h3 className="relative z-10 mb-6 text-4xl tracking-wide text-yellow-600 md:text-5xl font-Bebas drop-shadow-md">
+                     Captured Memories
+                </h3>
+            </div>
 
             <div className="relative transition-all duration-500 max-h-[500px] sm:max-h-[600px] md:max-h-[700px] lg:max-h-[800px] xl:max-h-[900px] overflow-hidden">
                 <div className="gap-2 space-y-2 columns-2 sm:columns-3 lg:columns-4">
