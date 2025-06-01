@@ -7,31 +7,20 @@ import {
 } from "lucide-react"
 
 
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuGroup,
-  DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
-
 import { Link } from "@inertiajs/react"
-import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "./ui/sidebar"
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
+import { SidebarMenu, SidebarMenuButton, SidebarMenuItem, useSidebar } from "../ui/sidebar"
+import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar"
+import { DropdownMenu, DropdownMenuContent, DropdownMenuGroup, DropdownMenuItem, DropdownMenuLabel, DropdownMenuTrigger } from "../ui/dropdown-menu"
+import { DropdownMenuSeparator } from "@radix-ui/react-dropdown-menu"
 
 export function NavUser({
   user,
 }: {
-  user: {
-    name: string
-    email: string
-    avatar: string
-  }
+  user: any
 }) {
   const { isMobile } = useSidebar()
 
+  console.log('user',user)
   return (
     <SidebarMenu>
       <SidebarMenuItem>
@@ -42,13 +31,13 @@ export function NavUser({
               className="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground"
             >
               <Avatar className="w-8 h-8 rounded-lg grayscale">
-                <AvatarImage src={user.avatar} alt={user.name} />
+                <AvatarImage src={user?.avatar_url} alt={user?.full_name} />
                 <AvatarFallback className="rounded-lg">CN</AvatarFallback>
               </Avatar>
               <div className="grid flex-1 text-sm leading-tight text-left">
-                <span className="font-medium truncate">{user.name}</span>
+                <span className="font-medium truncate">{user?.full_name}</span>
                 <span className="text-xs truncate text-muted-foreground">
-                  {user.email}
+                  {user?.email}
                 </span>
               </div>
               <MoreVerticalIcon className="ml-auto size-4" />
@@ -63,13 +52,13 @@ export function NavUser({
             <DropdownMenuLabel className="p-0 font-normal">
               <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
                 <Avatar className="w-8 h-8 rounded-lg">
-                  <AvatarImage src={user.avatar} alt={user.name} />
+                  <AvatarImage src={user?.avatar_url} alt={user?.full_name} />
                   <AvatarFallback className="rounded-lg">CN</AvatarFallback>
                 </Avatar>
                 <div className="grid flex-1 text-sm leading-tight text-left">
-                  <span className="font-medium truncate">{user.name}</span>
+                  <span className="font-medium truncate">{user?.full_name}</span>
                   <span className="text-xs truncate text-muted-foreground">
-                    {user.email}
+                    {user?.email}
                   </span>
                 </div>
               </div>

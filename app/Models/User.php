@@ -8,7 +8,10 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Carbon;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Storage;
 use Plank\Metable\Metable;
 
@@ -31,7 +34,8 @@ class User extends Authenticatable
         'type',
         'role_id',
         'avatar',
-        'phone'
+        'phone',
+        'is_guest'
 
     ];
 
@@ -68,52 +72,37 @@ class User extends Authenticatable
         'created_at_human',
         'avatar_url'
     ];
-
-    /**
-     * role
-     *
-     * @return BelongsTo
-     */
     public function role(): BelongsTo
     {
         return $this->belongsTo(UserRole::class);
     }
-    /**
-     * perms
-     *
-     * @return void
-     */
+    public function cart(): HasOne
+    {
+        return $this->hasOne(Cart::class);
+    }
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(ItemReview::class);
+    }
+
     public function perms()
     {
         $role = $this->role;
         return $role->permissions->pluck('slug')->unique();
     }
-
-    /**
-     * getAvatrUrlAttribute
-     *
-     * @return string
-     */
-    public function getAvatarUrlAttribute(): string
-    {
-        return Storage::url($this->avatar);
-    }
-
-
-    /**
-     * Method getFullNameAttribute
-     *
-     * @return string
-     */
     public function getFullNameAttribute(): string
     {
         return "{$this->first_name} {$this->last_name}";
     }
-    /**
-     * Method getCreatedAtHumanAttribute
-     *
-     * @return string
-     */
+    public function getAvatarUrlAttribute(): string
+    {
+        if ($avatar = $this->avatar) {
+            return Storage::url($avatar);
+        }
+
+        return "https://ui-avatars.com/api/?name={$this->full_name}&color=7F9CF5&background=EBF4FF&size=128";
+    }
+
     public function getCreatedAtHumanAttribute(): string
     {
         return Carbon::parse($this->created_at)->format("M d, Y");
@@ -141,7 +130,10 @@ class User extends Authenticatable
         $query->when($filters['searchParam'] ?? null, function ($query, $search) {
             $query->where(function ($query) use ($search) {
                 $query->where('first_name', 'like', '%' . $search . '%')
-                    ->orWhere('last_name', 'like', '%' . $search . '%');
+                    ->orWhere('last_name', 'like', '%' . $search . '%')
+                    ->orWhere('email', 'like', '%' . $search . '%')
+                    ->orWhere('phone', 'like', '%' . $search . '%')
+                    ->orWhere(DB::raw("CONCAT(first_name, ' ', last_name)"), 'like', '%' . $search . '%');
             });
         })->when($filters['trashed'] ?? null, function ($query, $trashed) {
             if ($trashed === 'with') {
@@ -161,6 +153,9 @@ class User extends Authenticatable
      */
     public function hasPermission($permission): bool
     {
+        if ($this->role->name == 'SuperAdmin') {
+            return true;
+        }
         if ($this->role->permissions->contains('slug', $permission)) {
             return true;
         }
@@ -174,6 +169,9 @@ class User extends Authenticatable
      */
     public function hasAnyPermission($permissions): bool
     {
+        if ($this->role->name == 'SuperAdmin') {
+            return true;
+        }
         foreach ($permissions as $permission) {
             if ($this->hasPermission($permission)) {
                 return true;

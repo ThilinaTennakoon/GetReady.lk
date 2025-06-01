@@ -1,7 +1,5 @@
-import { MailIcon, PlusCircleIcon, type LucideIcon } from "lucide-react"
-
-import { SidebarGroup, SidebarGroupContent, SidebarMenu, SidebarMenuItem, SidebarMenuLink } from "./ui/sidebar"
-import { router } from "@inertiajs/react"
+import { type LucideIcon } from "lucide-react"
+import { SidebarGroup, SidebarGroupContent, SidebarMenu, SidebarMenuItem, SidebarMenuLink } from "../ui/sidebar"
 
 export function NavMain({
     items,

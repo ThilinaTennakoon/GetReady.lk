@@ -22,7 +22,7 @@ class PermissionsSeeder extends Seeder
             ['name' => 'Dashboard','slug' => 'admin.dashboard','permission_category' => 'Dashboard'],
 
             // Users
-            // ['name' => 'All Users', 'slug' => 'users.index', 'permission_category' => 'Users'],
+            ['name' => 'All Users', 'slug' => 'users.index', 'permission_category' => 'Users'],
             // ['name' => 'User Create', 'slug' => 'users.create', 'permission_category' => 'Users'],
             // ['name' => 'User Edit', 'slug' => 'users.edit', 'permission_category' => 'Users'],
             // ['name' => 'User Show', 'slug' => 'users.show', 'permission_category' => 'Users'],
